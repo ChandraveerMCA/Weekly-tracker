@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Habits">
+<meta name="theme-color" content="#3b7de9">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADzElEQVR4nO3dwXHjRhCG0V6XY3Aydmr2wbE5GTsKH7jFQnH1aykSwPQM3rtJOghCfxwMKBX07fc//y34yC+jD4C+xEEkDiJxEImDSBxE4iASB5E4iMRBJA4icRCJg0gcROIgEgeROIjEQSQOInEQiYNIHETiIBIHkTiIxEEkDiJxEImDSBxE4iASB5E4iMRBJA4icRCJg0gcROIgEgeROIjEQSQOInEQiYNIHETiIBIHkTiIxEEkDqJfRx8A3/3z92/bD//4679RR3L3zT8AHO4hi62xibisDPZJGT/96tHEMdIzsx/YhziGeX7qo/oQB5E4xvjqYjBk8RAHkTgGGHsP8jxxnG2WMkocJ5uojBLHmd4pY8hbpeI4yVxrxo04JjDqNyziOMN0F5QbcRxu0jJKHEebt4wSx6GmLqPEcZzZyyhxNNSkjBLHQV5eNvqUUeI4whpllDh2N+M7oYk49rTAJnRLHLtZrIwSRwc9yyhx7GWZTeiWOHawZBkljvetdHvyQBxvWW8TuiWO161dRoljiCnKKHG8bNVN6JY4XnGFMkocL1j49uRBu8c+NXz60dbym9CtRnF8eN5vn5zutP5oxh+hy2Wl89OP7i6y1bhrEUfzpx+9eQCTllEd4uj/9KN3vvW8ZVSHOL5kSB/DF61RBsfxwnk/eVSXuj15MNnKcTPFS3n2MmrSOOqsPq651bibNY46vo+Ll1FTx1FH9qGMGh7H+6fyiD6m2NOcYO6V42bfWV759uTB+Dh2OaEdXuuLlVEd4qhOfdhqbLWIo3r0oYwHXeKo0X10uDB10yiOGteHTeiHOv6Pt71exE+OTRlJr5XjZq8zfvSVYu0yqmccdWIfNqGfaBpHndKHMj7XN446uA+3Jz/VOo46rA+b0Gd0j6MO6EMZT5ogjmpz/3KpMqrn+xzJ2F3C1cqoWVaOm4HjuWAZNVccddUhjTLTZWXrzEvMZYucbOW4O21gly2j5o2jThnblcuoqeOog4d38TJq9jjqsBEqoxaIowzyMCvEUXv3obabReKo/SaqjLt14qg95qqMraXiqPemq4wHq8VRZryfBeOol/qQ1I/WjKMMew/LxlFf6UNJH1o5jnpu6spIFo+jfjZ7ZXxi1r/neEHzR+43dKE4+Kr1Lyu8TBxE4iASB5E4iMRBJA4icRCJg0gcROIgEgeROIjEQSQOInEQiYNIHETiIBIHkTiIxEEkDiJxEImDSBxE4iASB5E4iMRBJA4icRCJg0gcROIgEgeROIjEQSQOInEQiYNIHETiIBIHkTiIxEH0P/rFHRKinn3UAAAAAElFTkSuQmCC">
+<title>Weekly Habit Tracker</title>
+<style>
+:root{--bg:#f5f7fa;--card:#fff;--tx:#1b2430;--mu:#6a7686;--ac:#3b7de9;--ok:#1f9d68;--bd:#e3e7ee;--tr:#e8ecf2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11151b;--card:#1a2029;--tx:#e8edf3;--mu:#8f9bab;--ac:#6ea1f5;--ok:#3dc08a;--bd:#2a323e;--tr:#28303b}}
+:root[data-theme="dark"]{--bg:#11151b;--card:#1a2029;--tx:#e8edf3;--mu:#8f9bab;--ac:#6ea1f5;--ok:#3dc08a;--bd:#2a323e;--tr:#28303b}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:560px;margin:0 auto;padding:16px 14px 40px}
+h1{font-size:20px;margin:0}h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);margin:22px 0 8px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px}
+.sub{color:var(--mu);font-size:13px}
+.bar{height:8px;background:var(--tr);border-radius:9px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ac);border-radius:9px;transition:width .25s}
+.bar.ok i{background:var(--ok)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.big{font-size:34px;font-weight:700;line-height:1}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:12px}
+.day{border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;padding:6px 0;text-align:center;font:inherit;font-size:12px;cursor:pointer}
+.day b{display:block;font-size:14px}.day.sel{border-color:var(--ac);box-shadow:0 0 0 1px var(--ac)}
+.day.today .n{color:var(--ac);font-weight:700}.day[disabled]{opacity:.4;cursor:default}
+.task{display:flex;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--bd)}
+.task:first-child{border-top:0}
+.chk{flex:none;width:34px;height:34px;border-radius:50%;border:2px solid var(--bd);background:none;color:#fff;font-size:18px;cursor:pointer;display:grid;place-items:center}
+.chk.on{background:var(--ok);border-color:var(--ok)}
+.task .m{flex:1;min-width:0}.task .nm{font-weight:600;overflow-wrap:anywhere}
+.task.done .nm{color:var(--mu);text-decoration:line-through}
+.task .bar{margin-top:6px;height:6px}
+.x{border:0;background:none;color:var(--mu);font-size:20px;cursor:pointer;padding:4px 8px}
+form{display:flex;gap:8px;flex-wrap:wrap}
+input,select,button.add{font:inherit;padding:10px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx)}
+input{flex:1 1 160px;min-width:0}
+button.add{background:var(--ac);color:#fff;border-color:var(--ac);font-weight:600;cursor:pointer}
+details{border-top:1px solid var(--bd);padding:10px 0}details:first-child{border-top:0}
+summary{cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
+.h{display:flex;justify-content:space-between;font-weight:600}
+.hl{display:flex;justify-content:space-between;font-size:14px;padding:6px 0 0;color:var(--mu)}
+.empty{color:var(--mu);text-align:center;padding:14px 0;font-size:14px}
+</style></head>
+<body><main id="app"></main>
+<script>
+const K='habit-tracker-v1';
+let S={tasks:[],log:{},hist:{}};
+try{const r=JSON.parse(localStorage.getItem(K));if(r&&r.tasks)S=r}catch(e){}
+const pad=n=>String(n).padStart(2,'0');
+const key=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const mon=d=>{const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-(x.getDay()+6)%7);return x};
+const wkDays=m=>[...Array(7)].map((_,i)=>{const x=new Date(m);x.setDate(m.getDate()+i);return x});
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const r2=n=>Math.round(n*100)/100;
+const DN=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+let sel=null;
+const isDone=(id,k)=>(S.log[k]||[]).includes(id);
+const cnt=(id,days)=>days.filter(d=>isDone(id,key(d))).length;
+const pct=(t,days)=>Math.min(100,cnt(t.id,days)/t.f*100);
+const overall=days=>S.tasks.length?S.tasks.reduce((a,t)=>a+pct(t,days),0)/S.tasks.length:0;
+function persist(m){
+  const days=wkDays(m);
+  if(S.tasks.length)S.hist[key(m)]={o:overall(days),t:S.tasks.map(t=>({n:t.n,f:t.f,d:cnt(t.id,days),p:pct(t,days)}))};
+  else delete S.hist[key(m)];
+  try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}
+}
+function render(){
+  const now=new Date(),tk=key(now),m=mon(now),days=wkDays(m),mk=key(m);
+  if(!sel||!days.some(d=>key(d)===sel))sel=tk;
+  persist(m);
+  const ov=overall(days);
+  const dayPct=d=>S.tasks.length?S.tasks.filter(t=>isDone(t.id,key(d))).length/S.tasks.length*100:0;
+  const sd=days.find(d=>key(d)===sel);
+  const fmtD=d=>d.toLocaleDateString(undefined,{day:'numeric',month:'short'});
+  let h=`<div class="row"><h1>Weekly Habits</h1><span class="sub">${fmtD(days[0])} – ${fmtD(days[6])}</span></div>
+  <div class="card" style="margin-top:12px"><div class="row"><div><div class="sub">Week progress</div><div class="big">${r2(ov)}%</div></div>
+  <div class="sub" style="text-align:right">Today<br><b style="font-size:20px;color:var(--tx)">${r2(dayPct(now))}%</b></div></div>
+  <div class="bar ${ov>=100?'ok':''}" style="margin-top:12px"><i style="width:${ov}%"></i></div>
+  <div class="days">${days.map((d,i)=>{const k=key(d),fut=k>tk;return `<button class="day ${k===sel?'sel':''} ${k===tk?'today':''}" data-day="${k}" ${fut?'disabled':''}><span class="n">${DN[i]}</span><b>${d.getDate()}</b><span class="sub">${fut?'–':Math.round(dayPct(d))+'%'}</span></button>`}).join('')}</div></div>`;
+  h+=`<h2>${sel===tk?"Today's tasks":sd.toLocaleDateString(undefined,{weekday:'long',day:'numeric',month:'short'})}</h2><div class="card">`;
+  h+=S.tasks.length?S.tasks.map(t=>{const on=isDone(t.id,sel),c=cnt(t.id,days),p=pct(t,days),per=100/t.f;
+    return `<div class="task ${on?'done':''}"><button class="chk ${on?'on':''}" data-t="${t.id}" aria-label="Toggle ${esc(t.n)}">${on?'✓':''}</button>
+    <div class="m"><div class="nm">${esc(t.n)}</div><div class="sub">${c}/${t.f} this week · ${r2(p)}% · +${r2(per)}% each</div>
+    <div class="bar ${p>=100?'ok':''}"><i style="width:${p}%"></i></div></div><button class="x" data-del="${t.id}" aria-label="Delete">×</button></div>`}).join(''):'<div class="empty">No tasks yet. Add your first one below.</div>';
+  h+=`</div><h2>Add a task</h2><div class="card"><form id="f"><input id="nm" placeholder="e.g. Workout" maxlength="60" required>
+  <select id="fq" aria-label="Times per week">${[7,6,5,4,3,2,1].map(n=>`<option value="${n}">${n===7?'Daily (7×)':n+'× / week'}</option>`).join('')}</select>
+  <button class="add">Add</button></form></div>`;
+  const ks=Object.keys(S.hist).filter(k=>k!==mk).sort().reverse();
+  h+=`<h2>Weekly history</h2><div class="card">`;
+  if(ks.length){
+    const avg=ks.reduce((a,k)=>a+S.hist[k].o,0)/ks.length;
+    h+=`<div class="sub" style="margin-bottom:6px">Average over ${ks.length} past week${ks.length>1?'s':''}: <b>${r2(avg)}%</b></div>`;
+    h+=ks.map(k=>{const w=S.hist[k],a=new Date(k+'T00:00'),b=new Date(a);b.setDate(a.getDate()+6);
+      return `<details><summary><div class="h"><span>${fmtD(a)} – ${fmtD(b)}</span><span>${r2(w.o)}%</span></div><div class="bar ${w.o>=100?'ok':''}" style="margin-top:6px"><i style="width:${w.o}%"></i></div></summary>
+      ${w.t.map(t=>`<div class="hl"><span>${esc(t.n)} (${t.d}/${t.f})</span><span>${r2(t.p)}%</span></div>`).join('')}</details>`}).join('');
+  }else h+='<div class="empty">Finished weeks are saved here automatically every Monday.</div>';
+  h+='</div>';
+  const open=[...document.querySelectorAll('details[open] .h span:first-child')].map(e=>e.textContent);
+  document.getElementById('app').innerHTML=h;
+  document.querySelectorAll('details').forEach(d=>{if(open.includes(d.querySelector('.h span').textContent))d.open=true});
+}
+document.addEventListener('click',e=>{
+  const c=e.target.closest('[data-t]'),d=e.target.closest('[data-day]'),x=e.target.closest('[data-del]');
+  if(c){const id=c.dataset.t,l=S.log[sel]=S.log[sel]||[],i=l.indexOf(id);i<0?l.push(id):l.splice(i,1);render()}
+  else if(d&&!d.disabled){sel=d.dataset.day;render()}
+  else if(x&&confirm('Delete this task? Past weeks stay in history.')){S.tasks=S.tasks.filter(t=>t.id!==x.dataset.del);render()}
+});
+document.addEventListener('submit',e=>{
+  e.preventDefault();
+  const n=document.getElementById('nm').value.trim();if(!n)return;
+  S.tasks.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,5),n,f:+document.getElementById('fq').value});
+  render();
+});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});
+render();
+</script></body></html>
